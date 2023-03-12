@@ -139,6 +139,7 @@ function handleGesture() {
                 generateRandomTile();
             }
         }
+        document.getElementById("score").innerText = score;
     }
 }
 
