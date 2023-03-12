@@ -1,2 +1,3 @@
 # 2048
-2048 game made with React
+
+2048 game made with JavaScript
