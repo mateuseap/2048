@@ -3,6 +3,15 @@ var score = 0;
 var rows = 4;
 var columns = 4;
 
+let pageWidth = window.innerWidth || document.body.clientWidth;
+let treshold = Math.max(1,Math.floor(0.01 * (pageWidth)));
+let touchstartX = 0;
+let touchstartY = 0;
+let touchendX = 0;
+let touchendY = 0;
+
+const limit = Math.tan(45 * 1.5 / 180 * Math.PI);
+
 window.onload = function() {
     setGame();
 }
@@ -92,7 +101,46 @@ document.addEventListener("keyup", (event) => {
         generateRandomTile();
     }
     document.getElementById("score").innerText = score;
-})
+});
+
+document.addEventListener('touchstart', function(event) {
+    touchstartX = event.changedTouches[0].screenX;
+    touchstartY = event.changedTouches[0].screenY;
+}, false);
+
+document.addEventListener('touchend', function(event) {
+    touchendX = event.changedTouches[0].screenX;
+    touchendY = event.changedTouches[0].screenY;
+    handleGesture();
+}, false);
+
+function handleGesture() {
+    let x = touchendX - touchstartX;
+    let y = touchendY - touchstartY;
+    let xy = Math.abs(x / y);
+    let yx = Math.abs(y / x);
+
+    if (Math.abs(x) > treshold || Math.abs(y) > treshold) {
+        if (yx <= limit) {
+            if (x < 0) {
+                slideLeft();
+                generateRandomTile();
+            } else {
+                slideRight();
+                generateRandomTile();
+            }
+        }
+        if (xy <= limit) {
+            if (y < 0) {
+                slideUp();
+                generateRandomTile();
+            } else {
+                slideDown();
+                generateRandomTile();
+            }
+        }
+    }
+}
 
 function filterZeros(row) {
     return row.filter(num => num != 0);
