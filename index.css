@@ -13,17 +13,23 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    row-gap: 4vmin;
+    font-size: 6vmin;
     height: 100vh;
     margin: 0;
-    margin-top: -1vmin;
-    font-size: 6vmin;
     color: white;
     font-weight: bold;
 }
 
 .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.score {
     font-size: 3vmin;
-    margin-bottom: 4vmin;
 }
 
 hr {
