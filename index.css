@@ -1,36 +1,51 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
 body {
-    font-family: Arial, Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: white;
     background-color: #121212;
-}
-
-hr {
-    width: 500px;
-}
-
-#board {
-    width: 400px;
-    height: 400px;
-
-    background-color: #cdc1b5;
-    border: 6px solid #bbada0;
-
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.tile {
-    width: 90px;
-    height: 90px;
-    border: 5px solid #bbada0;
-
-    font-size: 40px;
-    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    margin-top: -1vmin;
+    font-size: 6vmin;
+    color: white;
+    font-weight: bold;
+}
+
+.header {
+    font-size: 3vmin;
+    margin-bottom: 4vmin;
+}
+
+hr {
+    width: 40vmin;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(4, 15vmin);
+    grid-template-rows: repeat(4, 15vmin);
+    background-color: #cdc1b5;
+    border: 6px solid #bbada0;
+    gap: 2vmin;
+    border-radius: 1vmin;
+    padding: 2vmin;
+    position: relative;
+}
+
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    border-radius: 1vmin;
+    font-size: 6vmin;
+    background-color: #bbada0;
+    font-weight: bold;
 }
 
 .x2 {
@@ -48,32 +63,32 @@ hr {
     color: white;
 }
 
-.x16{
+.x16 {
     background-color: #f59575;
     color: white;
 }
 
-.x32{
+.x32 {
     background-color: #f57c5f;
     color: white;
 }
 
-.x64{
+.x64 {
     background-color: #f65d3b;
     color: white;
 }
 
-.x128{
+.x128 {
     background-color: #edce71;
     color: white;
 }
 
-.x256{
+.x256 {
     background-color: #edcc63;
     color: white;
 }
 
-.x512{
+.x512 {
     background-color: #edc651;
     color: white;
 }
