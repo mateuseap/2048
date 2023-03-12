@@ -3,6 +3,10 @@
     font-family: Arial;
 }
 
+body, html {
+    overflow: hidden;
+}
+
 body {
     background-color: #121212;
     display: flex;
